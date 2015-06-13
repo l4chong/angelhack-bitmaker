@@ -5,9 +5,13 @@ package com.lc.ooo.models;
  */
 public class SportItem {
 
-    private String sportName;
-    private String area;
-    private String user;
-    private String avatar;
 
+    private String sports;
+    private String area;
+    private String username;
+    private String avatar;
+    private String location;
+    private String description;
+    private String status;
+    private String rating;
 }
