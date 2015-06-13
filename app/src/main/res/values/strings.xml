@@ -14,4 +14,11 @@
     <string name="title_activity_sign_in_page">SignInPage</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main_no_navigation">MainNoNavigation</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_create_sport">CreateSport</string>
+    <string name="title_activity_profile_page">ProfilePage</string>
+    <string name="title_activity_settings_page">SettingsPage</string>
 </resources>

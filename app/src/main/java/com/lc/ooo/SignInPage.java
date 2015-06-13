@@ -1,5 +1,6 @@
 package com.lc.ooo;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+=======
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+>>>>>>> 2aac2aa9b17ae0720ba5681b8f2258ad540de43d
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +36,7 @@ public class SignInPage extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_page);
 
+<<<<<<< HEAD
         checkLogIn();
 
 
@@ -41,6 +48,12 @@ public class SignInPage extends ActionBarActivity {
 
 
 
+=======
+
+        //for testing moving to main activity for first time
+        Intent intent = new Intent(this, MainNoNavigation.class);
+        startActivity(intent);
+>>>>>>> 2aac2aa9b17ae0720ba5681b8f2258ad540de43d
     }
 
     @Override
