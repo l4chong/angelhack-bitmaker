@@ -1,26 +1,16 @@
 package com.lc.ooo;
 
-<<<<<<< HEAD
 import android.content.Context;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-=======
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
->>>>>>> 2aac2aa9b17ae0720ba5681b8f2258ad540de43d
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -36,24 +26,12 @@ public class SignInPage extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_page);
 
-<<<<<<< HEAD
         checkLogIn();
 
 
-        uName = (EditText)findViewById(R.id.username);
-        pWord= (EditText)findViewById(R.id.password);
+        uName = (EditText) findViewById(R.id.username);
+        pWord = (EditText) findViewById(R.id.password);
 
-
-
-
-
-
-=======
-
-        //for testing moving to main activity for first time
-        Intent intent = new Intent(this, MainNoNavigation.class);
-        startActivity(intent);
->>>>>>> 2aac2aa9b17ae0720ba5681b8f2258ad540de43d
     }
 
     @Override
@@ -88,8 +66,8 @@ public class SignInPage extends ActionBarActivity {
 
                 String rUsername = uName.getText().toString();
                 String rPassword = uName.getText().toString();
-                String logInUsername = "Shirwa";
-                String logInPassword = "password";
+                String logInUsername = "1";
+                String logInPassword = "1";
                 Context context = getApplicationContext();
                 String errorMess = "Password and Username incorrect";
                 int time = Toast.LENGTH_SHORT;
@@ -104,11 +82,10 @@ public class SignInPage extends ActionBarActivity {
                     Toast toast = Toast.makeText(context, errorMess, time);
                     toast.show();
 
-                } //else if (uName.getText().equals(logInUsername) && pWord.getText().equals(logInPassword)) {
-
-                //Intent intent = new Intent(SignInPage.th)
-
-                //}else
+                } else if (rUsername.equals(logInUsername) && rPassword.equals(logInPassword)) {
+                    Intent intent = new Intent(SignInPage.this, MainNoNavigation.class);
+                    startActivity(intent);
+                }
             }
         });
     }
