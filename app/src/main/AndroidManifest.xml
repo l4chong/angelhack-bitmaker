@@ -20,6 +20,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainNoNavigation"
+            android:label="@string/title_activity_main_no_navigation" >
+        </activity>
+        <activity
+            android:name=".ui.CreateSport"
+            android:label="@string/title_activity_create_sport" >
+        </activity>
+        <activity
+            android:name=".ui.ProfilePage"
+            android:label="@string/title_activity_profile_page" >
+        </activity>
+        <activity
+            android:name=".ui.SettingsPage"
+            android:label="@string/title_activity_settings_page" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,29 +1,24 @@
-package com.lc.ooo;
+package com.lc.ooo.ui;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.lc.ooo.R;
 
-public class SignInPage extends ActionBarActivity {
+public class SettingsPage extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in_page);
-
-
-        //for testing moving to main activity for first time
-        Intent intent = new Intent(this, MainNoNavigation.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_settings_page);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_sign_in_page, menu);
+        getMenuInflater().inflate(R.menu.menu_settings_page, menu);
         return true;
     }
 
