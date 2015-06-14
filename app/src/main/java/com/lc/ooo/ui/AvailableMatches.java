@@ -65,9 +65,14 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        SportItem event = sportItemList.get(position);
+                        SportItem item = sportItemList.get(position);
                         Intent intent = new Intent(getActivity(), DetailPage.class);
-//                        intent.putExtra("eventName", event.getEventName());
+                        intent.putExtra("avatar", item.getAvatar());
+                        intent.putExtra("sport", item.getSport());
+                        intent.putExtra("location", item.getLocation());
+                        intent.putExtra("rating", item.getRating());
+                        intent.putExtra("description", item.getDescription());
+                        intent.putExtra("username", item.getUsername());
                         startActivity(intent);
                     }
                 });
