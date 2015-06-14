@@ -15,8 +15,7 @@ import com.lc.ooo.R;
 
 public class ProfilePage extends ActionBarActivity {
 
-    private ImageView profileImage;
-    private ListView statusView;
+ 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +25,7 @@ public class ProfilePage extends ActionBarActivity {
 
 
 
-        profileImage= (ImageView)findViewById(R.id.profilePic);
-        Drawable profileDrawable = getResources().getDrawable(R.drawable.profile);
-        profileImage.setImageDrawable(profileDrawable);
+
 
 
     }
