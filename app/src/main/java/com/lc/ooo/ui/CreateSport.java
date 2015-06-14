@@ -39,6 +39,8 @@ public class CreateSport extends ActionBarActivity {
         date = (EditText) findViewById(R.id.edit_text_date);
         post = (Button) findViewById(R.id.post);
 
+
+
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +85,7 @@ public class CreateSport extends ActionBarActivity {
 
                         api.createGame(
                                 "http://cache.pakistantoday.com.pk/Roger-Federer-pumps-his-f-010.jpg",
-                                "joe",
+                                getString(R.string.username),
                                 sport.getText().toString(),
                                 location.getText().toString(),
                                 "99",
