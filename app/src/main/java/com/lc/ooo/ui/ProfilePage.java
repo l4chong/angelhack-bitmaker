@@ -27,7 +27,7 @@ public class ProfilePage extends ActionBarActivity {
 
 
         profileImage= (ImageView)findViewById(R.id.profilePic);
-        Drawable profileDrawable = getResources().getDrawable(R.drawable.akashii);
+        Drawable profileDrawable = getResources().getDrawable(R.drawable.profile);
         profileImage.setImageDrawable(profileDrawable);
 
 

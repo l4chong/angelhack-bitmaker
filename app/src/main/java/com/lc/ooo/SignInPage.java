@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class SignInPage extends ActionBarActivity {
+public class SignInPage extends ActionBarActivity{
 
     private Button LogIn;
     private EditText uName;

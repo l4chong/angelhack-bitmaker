@@ -1,8 +1,16 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+   <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+   -->
+        <!-- customize your theme here. -->
+        <style name ="AppTheme"
+            parent="Theme.AppCompat.Light.DarkActionBar">
+            <item name ="android:actionBarStyle">@style/MyActionBar</item>
+        </style>
+    <!--</style>-->
+    <style name="MyActionBar"
+        parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/screenheader</item>
     </style>
-
 </resources>
