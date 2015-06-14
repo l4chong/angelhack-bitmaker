@@ -54,6 +54,10 @@
             android:name=".ui.DetailPage"
             android:label="@string/title_activity_detail_page" >
         </activity>
+        <activity
+            android:name=".ui.MyMatchDetailPage"
+            android:label="@string/title_activity_my_match_detail_page" >
+        </activity>
     </application>
 
 </manifest>
