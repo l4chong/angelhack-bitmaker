@@ -21,4 +21,5 @@ public interface SportsAPI {
 
     @GET("/mymatches/{username}")
     public void getMyMatches(@Path(USERNAME) String username, Callback<List<SportItem>> callback);
+
 }

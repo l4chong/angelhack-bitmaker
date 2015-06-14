@@ -16,9 +16,9 @@
         </activity>
         <activity
             android:name=".SignInPage"
-            android:label="@string/title_activity_sign_in_page"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_sign_in_page"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,27 +27,31 @@
         </activity>
         <activity
             android:name=".MainNoNavigation"
-            android:label="@string/title_activity_main_no_navigation"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_main_no_navigation"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ui.CreateSport"
-            android:label="@string/title_activity_create_sport"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_create_sport"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ui.ProfilePage"
-            android:label="@string/title_activity_profile_page"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_profile_page"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ui.SettingsPage"
-            android:label="@string/title_activity_settings_page"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_settings_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ui.DetailPage"
+            android:label="@string/title_activity_detail_page" >
         </activity>
     </application>
 
