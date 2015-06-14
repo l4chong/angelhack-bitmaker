@@ -40,21 +40,24 @@
             android:textSize="12dp"
             android:text="username"
             android:layout_marginBottom="2dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:textColor="@color/primary_dark_material_dark"/>
         <TextView
             android:id="@+id/sport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12dp"
             android:text="sport"
-            android:layout_marginBottom="2dp"/>
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/primary_dark_material_dark"/>
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12dp"
             android:text="location"
-            android:layout_marginBottom="2dp"/>
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/primary_dark_material_dark"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -66,14 +69,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
-                android:text="Rating " />
+                android:text="Rating "
+                android:textColor="@color/primary_dark_material_dark"/>
 
             <TextView
                 android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
-                android:text="rating" />
+                android:text="rating"
+                android:textColor="@color/primary_dark_material_dark"/>
 
         </LinearLayout>
     </LinearLayout>
