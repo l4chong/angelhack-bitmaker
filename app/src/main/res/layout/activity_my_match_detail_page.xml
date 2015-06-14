@@ -12,33 +12,28 @@
         android:id="@+id/avatar"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/primary_dark_material_dark"/>
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="UserName"
-        android:id="@+id/username"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/primary_dark_material_dark"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Name :"
+            android:textColor="@color/primary_dark_material_dark"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Sport"
-        android:id="@+id/sport"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/primary_dark_material_dark"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Location"
-        android:id="@+id/location"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/primary_dark_material_dark"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="UserName"
+            android:id="@+id/username"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/primary_dark_material_dark"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -47,7 +42,50 @@
         android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal">
         <TextView
-            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Sport : "
+            android:textColor="@color/primary_dark_material_dark"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Sport"
+            android:id="@+id/sport"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/primary_dark_material_dark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Location "
+            android:textColor="@color/primary_dark_material_dark"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Location"
+            android:id="@+id/location"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/primary_dark_material_dark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -63,14 +101,28 @@
             android:textColor="@color/primary_dark_material_dark"/>
 
     </LinearLayout>
-    <TextView
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Description"
-        android:id="@+id/description"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/primary_dark_material_dark"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Description :"
+            android:textColor="@color/primary_dark_material_dark"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Description"
+            android:id="@+id/description"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/primary_dark_material_dark"/>
+    </LinearLayout>
 
 
     <Button
@@ -78,6 +130,14 @@
         android:layout_height="wrap_content"
         android:text="Update Results"
         android:id="@+id/result"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:id="@+id/share"
         android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

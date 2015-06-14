@@ -39,6 +39,7 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_available_matches, container, false);
         lv=(ListView) rootView.findViewById(R.id.listView);
+        setHasOptionsMenu(true);
         getEvents();
 
         return rootView;
@@ -92,11 +93,14 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
     public void onResume() {
         super.onResume();
         getEvents();
+        lv.deferNotifyDataSetChanged();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        if(item.getItemId() == R.id.action_refresh){
+            getEvents();
+        }
         return super.onOptionsItemSelected(item);
     }
 }

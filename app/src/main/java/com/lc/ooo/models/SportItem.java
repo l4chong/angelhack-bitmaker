@@ -14,6 +14,15 @@ public class SportItem {
     private String status;
     private String rating;
     private String id;
+    private String winner;
+
+    public String getWinner() {
+        return winner;
+    }
+
+    public void setWinner(String winner) {
+        this.winner = winner;
+    }
 
     public String getSport() {
         return sport;

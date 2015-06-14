@@ -36,7 +36,7 @@ public interface SportsAPI {
     @POST("/update/inprogress/{id}")
     public void updateMatchToProgress(@Path(ID) String id, @Query(USERNAME) String username, Callback<String> cb);
 
-    @POST("/update/inprogress/{id}")
+    @POST("/update/completed/{id}")
     public void updateMatchToComplete(@Path(ID) String id, @Query(USERNAME) String username, @Query(RESULTS) String result, Callback<String> cb);
 
     @POST("/sportslist")

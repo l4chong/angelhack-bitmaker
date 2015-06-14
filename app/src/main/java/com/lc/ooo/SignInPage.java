@@ -75,14 +75,13 @@ public class SignInPage extends ActionBarActivity{
                 pWord= (EditText)findViewById(R.id.password);
 
 
-
-
                 if (rUsername.trim().equals("") || rPassword.trim().equals("")) {
                     Log.i(errorMess,"INSIDE IF");
                     Toast toast = Toast.makeText(context, errorMess, time);
                     toast.show();
 
                 } else if (rUsername.equals(logInUsername) && rPassword.equals(logInPassword)) {
+                    finish();
                     Intent intent = new Intent(SignInPage.this, MainNoNavigation.class);
                     startActivity(intent);
                 }

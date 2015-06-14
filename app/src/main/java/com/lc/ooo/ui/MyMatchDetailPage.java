@@ -32,6 +32,7 @@ public class MyMatchDetailPage extends ActionBarActivity {
     private TextView rating;
     private TextView description;
     private Button result;
+    private Button share;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class MyMatchDetailPage extends ActionBarActivity {
         rating = (TextView) findViewById(R.id.rating);
         description = (TextView) findViewById(R.id.description);
         result = (Button) findViewById(R.id.result);
+        share = (Button) findViewById(R.id.share);
+
 
         final Bundle extras = getIntent().getExtras();
 
@@ -63,6 +66,9 @@ public class MyMatchDetailPage extends ActionBarActivity {
             rating.setText(extras.getString("rating"));
             description.setText(extras.getString("description"));
 
+            if(extras.getString("status").equals("completed")) {
+               result.setText(extras.getString("winner"));
+            }
             result.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
