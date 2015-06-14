@@ -97,7 +97,7 @@ public class DetailPage extends ActionBarActivity {
                             }
                         };
 
-                        api.updateMatchToProgress(extras.getString("id"), callback);
+                        api.updateMatchToProgress(extras.getString("id"), getResources().getString(R.string.username), callback);
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

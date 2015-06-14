@@ -62,6 +62,7 @@ public class MainNoNavigation extends ActionBarActivity {
         }
 
         floatingNav();
+
     }
 
     public void floatingNav(){

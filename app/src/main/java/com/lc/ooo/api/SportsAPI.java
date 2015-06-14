@@ -24,6 +24,7 @@ public interface SportsAPI {
     public static final String LOCATION = "location";
     public static final String DESCRIPTION = "description";
     public static final String STATUS = "status";
+    public static final String RESULTS = "result";
 
 
     @GET("/sportslist")
@@ -33,7 +34,10 @@ public interface SportsAPI {
     public void getMyMatches(@Path(USERNAME) String username, Callback<List<SportItem>> callback);
 
     @POST("/update/inprogress/{id}")
-    public void updateMatchToProgress(@Path(ID) String id, Callback<String> cb);
+    public void updateMatchToProgress(@Path(ID) String id, @Query(USERNAME) String username, Callback<String> cb);
+
+    @POST("/update/inprogress/{id}")
+    public void updateMatchToComplete(@Path(ID) String id, @Query(USERNAME) String username, @Query(RESULTS) String result, Callback<String> cb);
 
     @POST("/sportslist")
     public void createGame(@Query(AVATAR) String avatar,

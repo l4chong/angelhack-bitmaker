@@ -1,6 +1,7 @@
 package com.lc.ooo.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.lc.ooo.R;
@@ -70,6 +72,22 @@ public class MyMatches extends android.support.v4.app.Fragment {
                 sportItemList = arg0;
                 lv=(ListView) view.findViewById(R.id.listView);
                 lv.setAdapter(new ListAdapter(getActivity().getApplicationContext(), sportItemList));
+
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        SportItem item = sportItemList.get(position);
+                        Intent intent = new Intent(getActivity(), MyMatchDetailPage.class);
+                        intent.putExtra("avatar", item.getAvatar());
+                        intent.putExtra("sport", item.getSport());
+                        intent.putExtra("location", item.getLocation());
+                        intent.putExtra("rating", item.getRating());
+                        intent.putExtra("description", item.getDescription());
+                        intent.putExtra("username", item.getUsername());
+                        intent.putExtra("id", item.getId());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
@@ -78,6 +96,6 @@ public class MyMatches extends android.support.v4.app.Fragment {
             }
         };
 
-        api.getMyMatches("joe", callback);
+        api.getMyMatches(getString(R.string.username), callback);
     }
 }

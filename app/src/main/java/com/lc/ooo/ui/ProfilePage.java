@@ -1,32 +1,23 @@
 package com.lc.ooo.ui;
 
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.ListView;
-
-import android.R.*;
-
+import android.widget.TextView;
 
 import com.lc.ooo.R;
 
 public class ProfilePage extends ActionBarActivity {
 
- 
+    private TextView username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
-
-
-
-
-
-
+        username = (TextView) findViewById(R.id.textView18);
+        username.setText(getString(R.string.username));
 
     }
 

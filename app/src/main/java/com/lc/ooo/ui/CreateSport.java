@@ -88,7 +88,7 @@ public class CreateSport extends ActionBarActivity {
                                 location.getText().toString(),
                                 "99",
                                 description.getText().toString(),
-                                "status",
+                                "active",
                                 callback);
                     }
                 });
