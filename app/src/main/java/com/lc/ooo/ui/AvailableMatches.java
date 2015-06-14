@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -37,13 +38,13 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_available_matches, container, false);
-
-        getEvents(rootView);
+        lv=(ListView) rootView.findViewById(R.id.listView);
+        getEvents();
 
         return rootView;
     }
 
-    public void  getEvents(final View view) {
+    public void  getEvents() {
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setFollowSslRedirects(true);
 
@@ -59,7 +60,6 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
             public void success(List<SportItem> arg0, Response response) {
                 Log.i(TAG, "Success");
                 sportItemList = arg0;
-                lv=(ListView) view.findViewById(R.id.listView);
                 lv.setAdapter(new ListAdapter(getActivity().getApplicationContext(), sportItemList));
 
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -73,6 +73,7 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
                         intent.putExtra("rating", item.getRating());
                         intent.putExtra("description", item.getDescription());
                         intent.putExtra("username", item.getUsername());
+                        intent.putExtra("id", item.getId());
                         startActivity(intent);
                     }
                 });
@@ -87,5 +88,15 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
         api.getSportsList(callback);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getEvents();
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        return super.onOptionsItemSelected(item);
+    }
 }

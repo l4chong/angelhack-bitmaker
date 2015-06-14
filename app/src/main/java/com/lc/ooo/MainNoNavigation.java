@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import com.astuetz.PagerSlidingTabStrip;
 import com.lc.ooo.ui.AvailableMatches;
 import com.lc.ooo.ui.CreateSport;
+import com.lc.ooo.ui.MyFriends;
 import com.lc.ooo.ui.MyMatches;
 import com.lc.ooo.ui.ProfilePage;
 import com.lc.ooo.ui.SettingsPage;
@@ -68,7 +69,7 @@ public class MainNoNavigation extends ActionBarActivity {
         ImageView iconFAB = new ImageView(this); // Create an icon
         Resources res = getResources(); // need this to fetch the drawable
 
-        Drawable draw = res.getDrawable( R.drawable.ic_drawer );
+        Drawable draw = res.getDrawable( R.drawable. ic_launcher);
         iconFAB.setImageDrawable(draw);
 
 
@@ -79,15 +80,15 @@ public class MainNoNavigation extends ActionBarActivity {
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 
         ImageView iconTweet = new ImageView(this);
-        iconTweet.setImageDrawable(res.getDrawable( R.drawable.ic_drawer ));
+        iconTweet.setImageDrawable(res.getDrawable( R.drawable.ic_profile ));
         SubActionButton button_tweet = itemBuilder.setContentView(iconTweet).build();
 
         ImageView iconSearch = new ImageView(this);
-        iconSearch.setImageDrawable(res.getDrawable( R.drawable.ic_drawer ));
+        iconSearch.setImageDrawable(res.getDrawable( R.drawable.ic_new ));
         SubActionButton button_search = itemBuilder.setContentView(iconSearch).build();
 
         ImageView iconProfile = new ImageView(this);
-        iconProfile.setImageDrawable(res.getDrawable(R.drawable.ic_drawer));
+        iconProfile.setImageDrawable(res.getDrawable(R.drawable.ic_setting));
         SubActionButton button_profile = itemBuilder.setContentView(iconProfile).build();
 
         button_tweet.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +166,7 @@ public class MainNoNavigation extends ActionBarActivity {
                 case 1:
                     return new MyMatches();
                 case 2:
-                    return new AvailableMatches();
+                    return new MyFriends();
                 default:
                     return null;
             }

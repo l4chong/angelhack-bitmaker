@@ -1,9 +1,6 @@
 package com.lc.ooo.ui;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,15 +22,7 @@ import retrofit.RetrofitError;
 import retrofit.client.OkClient;
 import retrofit.client.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MyFriends.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MyFriends#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MyFriends extends Fragment {
+public class MyFriends extends android.support.v4.app.Fragment {
     private static List<SportItem> sportItemList = new ArrayList<SportItem>();
     ListView lv;
     private static String TAG = "AvailableMatches";

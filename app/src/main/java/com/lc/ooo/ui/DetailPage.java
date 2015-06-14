@@ -1,16 +1,27 @@
 package com.lc.ooo.ui;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lc.ooo.R;
+import com.lc.ooo.api.SportsAPI;
+import com.squareup.okhttp.OkHttpClient;
 import com.squareup.picasso.Picasso;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.OkClient;
+import retrofit.client.Response;
 
 public class DetailPage extends ActionBarActivity {
 
@@ -35,7 +46,7 @@ public class DetailPage extends ActionBarActivity {
         description = (TextView) findViewById(R.id.description);
         accept = (Button) findViewById(R.id.accept);
 
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
             if(extras.getString("avatar") != null){
@@ -52,6 +63,53 @@ public class DetailPage extends ActionBarActivity {
             rating.setText(extras.getString("rating"));
             description.setText(extras.getString("description"));
         }
+
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetailPage.this);
+                builder.setMessage("Accept the Challenge?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, int id) {
+                        //do a post here
+                        OkHttpClient okHttpClient = new OkHttpClient();
+                        okHttpClient.setFollowSslRedirects(true);
+
+                        RestAdapter adapter = new RestAdapter.Builder()
+                                .setClient(new OkClient(okHttpClient))
+                                .setEndpoint(SportsAPI.ENDPOINT)
+                                .build();
+
+                        SportsAPI api = adapter.create(SportsAPI.class);
+
+                        Callback callback = new Callback<String>() {
+
+                            @Override
+                            public void success(String s, Response response) {
+                                finish();
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+//                                Toast.makeText(getApplicationContext(), error.toString(),
+//                                        Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+                        };
+
+                        api.updateMatchToProgress(extras.getString("id"), callback);
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
     }
 
     @Override
@@ -75,4 +133,5 @@ public class DetailPage extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
