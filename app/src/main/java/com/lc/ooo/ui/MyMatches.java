@@ -50,6 +50,7 @@ public class MyMatches extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_my_matches, container, false);
         lv=(ListView) rootView.findViewById(R.id.listView);
+        setHasOptionsMenu(true);
         getEvents();
 
         return rootView;
