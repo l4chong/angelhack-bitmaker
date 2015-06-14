@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.lc.ooo.adapter.CustomAdapter;
 
 import java.util.ArrayList;
 
@@ -34,8 +33,8 @@ public class MainNoNavigationFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_no_navigation, container, false);
 
-        lv=(ListView) rootView.findViewById(R.id.listView);
-        lv.setAdapter(new CustomAdapter(getActivity().getApplicationContext(), prgmNameList,prgmImages));
+//        lv=(ListView) rootView.findViewById(R.id.listView);
+//        lv.setAdapter(new CustomAdapter(getActivity().getApplicationContext(), prgmNameList,prgmImages));
 
         return rootView;
     }
