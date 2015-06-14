@@ -1,8 +1,13 @@
 package com.lc.ooo;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,7 +20,9 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.lc.ooo.ui.AvailableMatches;
 import com.lc.ooo.ui.CreateSport;
+import com.lc.ooo.ui.MyMatches;
 import com.lc.ooo.ui.ProfilePage;
 import com.lc.ooo.ui.SettingsPage;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
@@ -26,7 +33,7 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 public class MainNoNavigation extends ActionBarActivity {
     private ViewPager pager;
 
-    private static final String[] CONTENT = new String[] { "Sports", "blah", "blah", "blah" };
+    private static final String[] CONTENT = new String[] { "Browse", "My Matches", "My Friends" };
     private static final int[] ICONS = new int[] {
             R.drawable.ic_drawer,
             R.drawable.ic_drawer,
@@ -49,13 +56,9 @@ public class MainNoNavigation extends ActionBarActivity {
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(pager);
 
-
-//        ImageView icon = new ImageView(this); // Create an icon
-//        icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_drawer));
-//
-//        FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
-//                .setContentView(icon)
-//                .build();
+        if(!isNetworkAvailable()) {
+            noNetworkDialogBox();
+        }
 
         floatingNav();
     }
@@ -158,11 +161,11 @@ public class MainNoNavigation extends ActionBarActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new MainNoNavigationFragment();
+                    return new AvailableMatches();
                 case 1:
-                    return new MainNoNavigationFragment();
+                    return new MyMatches();
                 case 2:
-                    return new MainNoNavigationFragment();
+                    return new AvailableMatches();
                 default:
                     return null;
             }
@@ -179,5 +182,34 @@ public class MainNoNavigation extends ActionBarActivity {
 //        public int getPageIconResId(int i) {
 //            return ICONS[i];
 //        }
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager  = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private void noNetworkDialogBox() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        // set title
+        alertDialogBuilder.setTitle("Unable to Connect to Server");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Please turn on the internet connection and re-launch the app.")
+                .setCancelable(false)
+                .setPositiveButton("Okay!",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        finish();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 }
