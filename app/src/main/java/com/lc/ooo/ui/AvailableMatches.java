@@ -1,10 +1,12 @@
 package com.lc.ooo.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.lc.ooo.R;
@@ -59,6 +61,16 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
                 sportItemList = arg0;
                 lv=(ListView) view.findViewById(R.id.listView);
                 lv.setAdapter(new ListAdapter(getActivity().getApplicationContext(), sportItemList));
+
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        SportItem event = sportItemList.get(position);
+                        Intent intent = new Intent(getActivity(), DetailPage.class);
+//                        intent.putExtra("eventName", event.getEventName());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
@@ -69,4 +81,6 @@ public class AvailableMatches extends android.support.v4.app.Fragment {
 
         api.getSportsList(callback);
     }
+
+
 }

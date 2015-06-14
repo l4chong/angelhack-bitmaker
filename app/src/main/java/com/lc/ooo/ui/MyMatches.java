@@ -45,7 +45,7 @@ public class MyMatches extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_available_matches, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_my_matches, container, false);
 
         getEvents(rootView);
 

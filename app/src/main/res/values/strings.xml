@@ -21,4 +21,5 @@
     <string name="title_activity_create_sport">CreateSport</string>
     <string name="title_activity_profile_page">ProfilePage</string>
     <string name="title_activity_settings_page">SettingsPage</string>
+    <string name="title_activity_detail_page">DetailPage</string>
 </resources>
