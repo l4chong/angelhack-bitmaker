@@ -1,5 +1,6 @@
 package com.lc.ooo;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,10 +15,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toolbar;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.lc.ooo.ui.AvailableMatches;
@@ -33,6 +36,8 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
 public class MainNoNavigation extends ActionBarActivity {
     private ViewPager pager;
+    private Toolbar customBar;
+
 
     private static final String[] CONTENT = new String[] { "Browse", "My Matches", "My Friends" };
     private static final int[] ICONS = new int[] {
@@ -62,6 +67,11 @@ public class MainNoNavigation extends ActionBarActivity {
         }
 
         floatingNav();
+        
+
+
+
+
     }
 
     public void floatingNav(){

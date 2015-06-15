@@ -15,7 +15,7 @@ import com.lc.ooo.R;
 
 public class ProfilePage extends ActionBarActivity {
 
- 
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
