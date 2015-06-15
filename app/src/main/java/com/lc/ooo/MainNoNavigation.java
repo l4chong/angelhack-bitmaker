@@ -36,7 +36,7 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
 public class MainNoNavigation extends ActionBarActivity {
     private ViewPager pager;
-    private Toolbar customBar;
+
 
 
     private static final String[] CONTENT = new String[] { "Browse", "My Matches", "My Friends" };
@@ -67,10 +67,13 @@ public class MainNoNavigation extends ActionBarActivity {
         }
 
         floatingNav();
+<<<<<<< HEAD
         
 
 
 
+=======
+>>>>>>> 7804a52207a01967012ddf12f8a47c1953d4aa8d
 
     }
 

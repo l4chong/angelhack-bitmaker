@@ -1,13 +1,16 @@
 package com.lc.ooo.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.lc.ooo.R;
@@ -46,13 +49,14 @@ public class MyMatches extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_my_matches, container, false);
-
-        getEvents(rootView);
+        lv=(ListView) rootView.findViewById(R.id.listView);
+        setHasOptionsMenu(true);
+        getEvents();
 
         return rootView;
     }
 
-    public void  getEvents(final View view) {
+    public void  getEvents() {
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setFollowSslRedirects(true);
 
@@ -68,8 +72,25 @@ public class MyMatches extends android.support.v4.app.Fragment {
             public void success(List<SportItem> arg0, Response response) {
                 Log.i(TAG, "Success");
                 sportItemList = arg0;
-                lv=(ListView) view.findViewById(R.id.listView);
                 lv.setAdapter(new ListAdapter(getActivity().getApplicationContext(), sportItemList));
+
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        SportItem item = sportItemList.get(position);
+                        Intent intent = new Intent(getActivity(), MyMatchDetailPage.class);
+                        intent.putExtra("avatar", item.getAvatar());
+                        intent.putExtra("sport", item.getSport());
+                        intent.putExtra("location", item.getLocation());
+                        intent.putExtra("rating", item.getRating());
+                        intent.putExtra("description", item.getDescription());
+                        intent.putExtra("username", item.getUsername());
+                        intent.putExtra("id", item.getId());
+                        intent.putExtra("status",item.getStatus());
+                        intent.putExtra("winner", item.getWinner());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
@@ -78,6 +99,15 @@ public class MyMatches extends android.support.v4.app.Fragment {
             }
         };
 
-        api.getMyMatches("joe", callback);
+        api.getMyMatches(getString(R.string.username), callback);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_refresh){
+            getEvents();
+            lv.deferNotifyDataSetChanged();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
